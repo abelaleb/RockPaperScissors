@@ -1,6 +1,6 @@
 //create a getcomputerchoice funciton to play as a computer 
 let getComputerChoice = function(){
-    let computerChoice = ["rock", "paper", "scissors"];
+    let computerChoice = ["Rock", "Paper", "Scissors"];
     no = Math.floor(Math.random()*3);
     return computerChoice[no];
 }
@@ -8,6 +8,8 @@ let getComputerChoice = function(){
 //And it returns a string that declares the winner or tie of the round like : "You Lose! Paper beats Rock"
 //Make you fucntion case insensitive
 function playRound(playerSelection, computerSelection) {
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerSelection.toLowerCase();
     if (playerSelection == computerSelection){
         return "This round is a Tie."
     }
@@ -16,10 +18,10 @@ function playRound(playerSelection, computerSelection) {
     else if (playerSelection == "rock" && computerSelection == "scissors"){
         return "You Win! Rock beats Scissors."}
   }
-  const playerSelection = "rock";
+  const playerSelection = "Rock";
   const computerSelection = getComputerChoice();
-  console.log(playerSelection);
-  console.log(computerSelection);
+  console.log("Player :",playerSelection);
+  console.log("Computer :",computerSelection);
   let round = playRound(playerSelection, computerSelection)
   console.log(round);
   
