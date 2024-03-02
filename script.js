@@ -4,12 +4,13 @@ let getComputerChoice = function () {
   computerChoice = ["rock", "paper", "scissors"];
   let no = Math.floor(Math.random() * 3);
   return computerChoice[no];
-}; 
+};
 let playerPoints = 0,
-    computerPoints = 0;
+  computerPoints = 0;
+//Function playGame() that plays 5 rounds of game and keeps score and reports the winner or loser at the end.
 function playGame() {
-    while (playerPoints < 3 && computerPoints < 3) {
-    console.log("player Points", playerPoints, "computer", computerPoints)
+  while (playerPoints < 3 && computerPoints < 3) {
+    console.log("player Points", playerPoints, "computer", computerPoints);
   }
   if (playerPoints === 3) {
     console.log("You Win!");
@@ -19,13 +20,14 @@ function playGame() {
 }
 
 function playRound() {
+
+  let computerChoice = getComputerChoice(); 
   //prompt the user for choice
-  let computerChoice = getComputerChoice();
   playerChoice = prompt("Enter your choice");
   playerChoice = playerChoice.toLowerCase();
   computerChoice.toLowerCase();
-  console.log("Computer Choice : ", computerChoice);
-  console.log("Player Choice : ", playerChoice);
+  console.log("computerChoice : ", computerChoice);
+  console.log("playerChoice : ", playerChoice);
 
   if (playerChoice === computerChoice) {
     return "This round is a Tie.";
@@ -50,5 +52,5 @@ function playRound() {
   } else {
     return "not any of the above";
   }
-}
+};
 playGame();
