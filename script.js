@@ -6,6 +6,8 @@ let getComputerChoice = function () {
   return computerSelection[no];
 };
 
+
+
 //New function called playGame() that plays 5 rounds of game and keeps score and reports the winner or loser at the end.
 //Use loops to repeat function calls.
 //use prompt to get input from users.
