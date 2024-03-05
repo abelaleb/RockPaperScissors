@@ -1,4 +1,5 @@
 //create a getcomputerchoice funciton to play as a computer.
+const resultDiv = document.getElementById("answer");
 let playerChoice, computerChoice;
 let getComputerChoice = function () {
   computerChoice = ["rock", "paper", "scissors"];
@@ -7,69 +8,79 @@ let getComputerChoice = function () {
 };
 let playerPoints = 0,
   computerPoints = 0;
-/*//Function playGame() that plays 5 rounds of game and keeps score and reports the winner or loser at the end.
-function playGame() {
-  while (playerPoints < 3 && computerPoints < 3) {
-    console.log("player Points", playerPoints, "computer", computerPoints);
-  }
-  if (playerPoints === 3) {
-    console.log("You Win!");
-  } else {
-    console.log("You Lose!");
-  }
-}
-*/
-function playRound() {
-  let computerChoice = getComputerChoice(); 
-  //prompt the user for choice
-  playerChoice = prompt("Enter your choice");
-  playerChoice = playerChoice.toLowerCase();
-  computerChoice.toLowerCase();
-  console.log("computerChoice : ", computerChoice);
-  console.log("playerChoice : ", playerChoice);
-  if(playerChoice === computerChoice) {
-      console.log("This round is a Tie.")
-      return "This round is a Tie.";
+let result;
+let results = [];
+function playRound(playerChoice) {
+  let computerChoice = getComputerChoice();
+  if (playerChoice === computerChoice) {
+    result = `This round is a Tie. Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    results.push(result);
   } else if (playerChoice === "paper" && computerChoice == "rock") {
     playerPoints++;
-    console.log("You Win! paper beats rock.");
-    return "You Win! paper beats rock.";
+    result = `You Win! paper beats rock. Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    results.push(result);
   } else if (playerChoice === "paper" && computerChoice == "scissors") {
     computerPoints++;
-    console.log("You Lose! Scissors beats Paper.");
-    return "You Lose! Scissors beats Paper.";
+    result = `You Lose! Scissors beats Paper. 
+    
+    Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    results.push(result);
   } else if (playerChoice === "rock" && computerChoice == "paper") {
     computerPoints++;
-    console.log("You Lose! Paper beats Rock.");
-    return "You Lose! Paper beats Rock.";
+    result = `You Lose! Paper beats Rock. 
+    
+    Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    results.push(result);
   } else if (playerChoice === "rock" && computerChoice == "scissors") {
     playerPoints++;
-    console.log("You Win! Rock beats Scissors.");
-    return "You Win! Rock beats Scissors.";
+    result = `You Win! Rock beats Scissors. 
+    
+    Computer's point ${computerPoints} Player's point: ${playerPoints}`
+    results.push(result);
   } else if (playerChoice === "scissors" && computerChoice == "paper") {
     playerPoints++;
-    console.log("You Win! Scissors beats Paper.");
-    return "You Win! Scissors beats Paper.";
+    result = `You Win! Scissors beats Paper. Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    results.push(result);
   } else if (playerChoice === "scissors" && computerChoice == "rock") {
     computerPoints++;
-    console.log("You Lose! Rock beats Scissors.");
-    return "You Lose! Rock beats Scissors.";
+    result = `You Lose! Rock beats Scissors.Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    results.push(result);
   } else {
-    console.log("not any of the above");
-    return "not any of the above";
-    };
-  };
-const body = document.querySelector('body');
-const button1 = document.createElement('button');
-button1.textContent = "Button 1";
-button1.addEventListener('click', playRound);
-const button2 = document.createElement('button');
-button2.addEventListener('click', playRound);
-button2.textContent = "Button 2";
-const button3 = document.createElement('button');
-button3.textContent = "Button 3";
-button3.addEventListener('click',playRound);
-body.append(button1);
-body.append(button2,button3);
-
+    result = `Not any of the above. Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    results.push(result);
+  }
+  declareWinner();
+  resultDiv.innerHTML = results.join(`<br>`);
+  return
+}
+function declareWinner() {
+  if (playerPoints === 5) {
+    results.push("CONGRATS! YOU WON!!!");
+    button1.setAttribute("disabled", "");
+    button2.setAttribute("disabled", "");
+    button3.setAttribute("disabled", "");
+    //Disable the rock,paper and scissors buttons forcing the player to reload the game
+  } else if (computerPoints === 5) {
+    results.push("OOPS! YOU LOST!!!");
+    button1.setAttribute("disabled", "");
+    button2.setAttribute("disabled", "");
+    button3.setAttribute("disabled", "");
+  }
+}
+const body = document.querySelector("body");
+const button1 = document.createElement("button");
+button1.textContent = "Rock";
+button1.addEventListener("click", () => playRound("rock"));
+const button2 = document.createElement("button");
+button2.addEventListener("click", () => playRound("paper"));
+button2.textContent = "Paper";
+const button3 = document.createElement("button");
+button3.textContent = "Scissors";
+button3.addEventListener("click", () => playRound("scissors"));
+const reloadButton = document.createElement("button");
+reloadButton.addEventListener("click", function () {
+  window.location.reload();
+});
+reloadButton.textContent = "Reload The Game";
+body.append(button1, button2, button3, reloadButton);
 //playGame();
