@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RockPaperScissors</title>
-    <script src="/script.js" refer></script>
+    <script src="/script.js" defer></script>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1>hello</h1>
+    <div class="head"><h1 >RockPaperScissors</h1></div>
+    <h2>The game is RockPaperScissors. The rules are simple:
+        <br> Rock crushes Scissors.
+        <br> Scissors cuts Paper.
+        <br> Paper covers Rock.
+        <br> And if both players choose the same object, it's a tie.
+        </h2>
+        <div class="container">
+            <div><button class="btn" id="rock">Rock</button></div>
+            <div><button class="btn"id="paper">Paper</button></div>
+            <div><button class="btn" id="scissors">Scissors</button></div>
+        </div>
+        <div><button class="btn" id="reload">Reload The Game</button></div>
+        <div id="answer"></div>
 </body>
 </html>

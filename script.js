@@ -1,4 +1,5 @@
 //create a getcomputerchoice funciton to play as a computer.
+const resultDiv = document.getElementById("answer");
 let playerChoice, computerChoice;
 let getComputerChoice = function () {
   computerChoice = ["rock", "paper", "scissors"];
@@ -7,50 +8,74 @@ let getComputerChoice = function () {
 };
 let playerPoints = 0,
   computerPoints = 0;
-//Function playGame() that plays 5 rounds of game and keeps score and reports the winner or loser at the end.
-function playGame() {
-  while (playerPoints < 3 && computerPoints < 3) {
-    console.log("player Points", playerPoints, "computer", computerPoints);
-  }
-  if (playerPoints === 3) {
-    console.log("You Win!");
-  } else {
-    console.log("You Lose!");
-  }
-}
-
-function playRound() {
-
-  let computerChoice = getComputerChoice(); 
-  //prompt the user for choice
-  playerChoice = prompt("Enter your choice");
-  playerChoice = playerChoice.toLowerCase();
-  computerChoice.toLowerCase();
-  console.log("computerChoice : ", computerChoice);
-  console.log("playerChoice : ", playerChoice);
-
+let result;
+let results = [];
+function playRound(playerChoice) {
+  let computerChoice = getComputerChoice();
   if (playerChoice === computerChoice) {
-    return "This round is a Tie.";
+    result = `This round is a Tie. Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    results.push(result);
   } else if (playerChoice === "paper" && computerChoice == "rock") {
     playerPoints++;
-    return "You Win! paper beats rock.";
+    result = `You Win! paper beats rock. Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    results.push(result);
   } else if (playerChoice === "paper" && computerChoice == "scissors") {
     computerPoints++;
-    return "You Lose! Scissors beats Paper.";
+    result = `You Lose! Scissors beats Paper. 
+    
+    Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    results.push(result);
   } else if (playerChoice === "rock" && computerChoice == "paper") {
     computerPoints++;
-    return "You Lose! Paper beats Rock.";
+    result = `You Lose! Paper beats Rock. 
+    
+    Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    results.push(result);
   } else if (playerChoice === "rock" && computerChoice == "scissors") {
     playerPoints++;
-    return "You Win! Rock beats Scissors.";
+    result = `You Win! Rock beats Scissors. 
+    
+    Computer's point ${computerPoints} Player's point: ${playerPoints}`
+    results.push(result);
   } else if (playerChoice === "scissors" && computerChoice == "paper") {
     playerPoints++;
-    return "You Win! Scissors beats Paper.";
+    result = `You Win! Scissors beats Paper. Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    results.push(result);
   } else if (playerChoice === "scissors" && computerChoice == "rock") {
     computerPoints++;
-    return "You Lose! Rock beats Scissors.";
+    result = `You Lose! Rock beats Scissors.Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    results.push(result);
   } else {
-    return "not any of the above";
+    result = `Not any of the above. Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    results.push(result);
   }
-};
-playGame();
+  declareWinner();
+  resultDiv.innerHTML = results.join(`<br>`);
+  return
+}
+function declareWinner() {
+  if (playerPoints === 3) {
+    results.push("CONGRATS! YOU WON!!!");
+    button1.setAttribute("disabled", "");
+    button2.setAttribute("disabled", "");
+    button3.setAttribute("disabled", "");
+    //Disable the rock,paper and scissors buttons forcing the player to reload the game
+  } else if (computerPoints === 3) {
+    results.push("OOPS! YOU LOST!!!");
+    button1.setAttribute("disabled", "");
+    button2.setAttribute("disabled", "");
+    button3.setAttribute("disabled", "");
+  }
+}
+const body = document.querySelector("body");
+const button1 = document.getElementById("rock");
+button1.addEventListener("click", () => playRound("rock"));
+const button2 = document.getElementById("paper");
+button2.addEventListener("click", () => playRound("paper"));
+const button3 = document.getElementById("scissors");
+button3.addEventListener("click", () => playRound("scissors"));
+const reloadButton = document.getElementById("reload");
+reloadButton.addEventListener("click", function () {
+  window.location.reload();
+});
+body.append(button1, button2, button3, reloadButton);
