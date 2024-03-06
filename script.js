@@ -54,13 +54,13 @@ function playRound(playerChoice) {
   return
 }
 function declareWinner() {
-  if (playerPoints === 5) {
+  if (playerPoints === 3) {
     results.push("CONGRATS! YOU WON!!!");
     button1.setAttribute("disabled", "");
     button2.setAttribute("disabled", "");
     button3.setAttribute("disabled", "");
     //Disable the rock,paper and scissors buttons forcing the player to reload the game
-  } else if (computerPoints === 5) {
+  } else if (computerPoints === 3) {
     results.push("OOPS! YOU LOST!!!");
     button1.setAttribute("disabled", "");
     button2.setAttribute("disabled", "");
@@ -68,19 +68,14 @@ function declareWinner() {
   }
 }
 const body = document.querySelector("body");
-const button1 = document.createElement("button");
-button1.textContent = "Rock";
+const button1 = document.getElementById("rock");
 button1.addEventListener("click", () => playRound("rock"));
-const button2 = document.createElement("button");
+const button2 = document.getElementById("paper");
 button2.addEventListener("click", () => playRound("paper"));
-button2.textContent = "Paper";
-const button3 = document.createElement("button");
-button3.textContent = "Scissors";
+const button3 = document.getElementById("scissors");
 button3.addEventListener("click", () => playRound("scissors"));
-const reloadButton = document.createElement("button");
+const reloadButton = document.getElementById("reload");
 reloadButton.addEventListener("click", function () {
   window.location.reload();
 });
-reloadButton.textContent = "Reload The Game";
 body.append(button1, button2, button3, reloadButton);
-//playGame();

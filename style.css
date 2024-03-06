@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.head {
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: #610bec;
+}
+
+h1 {
+    color: #faa506;
+    font-size: 2.5rem;
+    margin: 0;
+}
+h2{
+    text-align: center;
+}
+.container {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2rem;
+    margin: 0 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+#reload {
+    background-color: #f44336;
+    margin-top: 20px;
+}
+
+#reload:hover {
+    background-color: #d32f2f;
+}
+
+#answer {
+    border-style: solid;
+    border-color: #4caf50;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #c01d1d;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+}
+button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+button :disabled:hover{
+    background-color: #aaa;
+    cursor: not-allowed;;
+}
