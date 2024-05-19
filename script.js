@@ -13,45 +13,44 @@ let results = [];
 function playRound(playerChoice) {
   let computerChoice = getComputerChoice();
   if (playerChoice === computerChoice) {
-    result = `This round is a Tie. Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    result = `This round is a Tie. Computer's point: ${computerPoints} Player's point: ${playerPoints}`;
     results.push(result);
   } else if (playerChoice === "paper" && computerChoice == "rock") {
     playerPoints++;
-    result = `You Win! paper beats rock. Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    result = `You Win! paper beats rock. Computer's point: ${computerPoints} Player's point: ${playerPoints}`;
     results.push(result);
   } else if (playerChoice === "paper" && computerChoice == "scissors") {
     computerPoints++;
     result = `You Lose! Scissors beats Paper. 
     
-    Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    Computer's point: ${computerPoints} Player's point: ${playerPoints}`;
     results.push(result);
   } else if (playerChoice === "rock" && computerChoice == "paper") {
     computerPoints++;
     result = `You Lose! Paper beats Rock. 
     
-    Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    Computer's point: ${computerPoints} Player's point: ${playerPoints}`;
     results.push(result);
   } else if (playerChoice === "rock" && computerChoice == "scissors") {
     playerPoints++;
     result = `You Win! Rock beats Scissors. 
-    
-    Computer's point ${computerPoints} Player's point: ${playerPoints}`
+    Computer's point ${computerPoints} Player's point: ${playerPoints}`;
     results.push(result);
   } else if (playerChoice === "scissors" && computerChoice == "paper") {
     playerPoints++;
-    result = `You Win! Scissors beats Paper. Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    result = `You Win! Scissors beats Paper. Computer's point: ${computerPoints} Player's point: ${playerPoints}`;
     results.push(result);
   } else if (playerChoice === "scissors" && computerChoice == "rock") {
     computerPoints++;
-    result = `You Lose! Rock beats Scissors.Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    result = `You Lose! Rock beats Scissors.Computer's point: ${computerPoints} Player's point: ${playerPoints}`;
     results.push(result);
   } else {
-    result = `Not any of the above. Computer's point: ${computerPoints} Player's point: ${playerPoints}`
+    result = `Not any of the above. Computer's point: ${computerPoints} Player's point: ${playerPoints}`;
     results.push(result);
   }
   declareWinner();
   resultDiv.innerHTML = results.join(`<br>`);
-  return
+  return;
 }
 function declareWinner() {
   if (playerPoints === 3) {
