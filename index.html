@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RockPaperScissors</title>
-    <script src="/script.js" defer></script>
-    <link rel="stylesheet" href="/style.css" />
-  </head>
-  <body>
-    <div class="title">
-      <h1>RockPaperScissors</h1>
-    </div>
-    <div class="dropdown">
-      <p>How to play?</p>
-      <div class="dropdown-content">
-        <p>
-          The game is RockPaperScissors. The rules are simple: <br />
-          * Rock crushes Scissors. <br />
-          * Scissors cuts Paper. <br />
-          * Paper covers Rock. <br />
-          And if both players choose the same object, it's a tie.
-        </p>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RockPaperScissors</title>
+  <script src="/script.js" defer></script>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+  <div class="title">
+    <h1>RockPaperScissors</h1>
+  </div>
+  <button onclick="showDialog()" type="button">How To play Instructions</button>
+  
+  <dialog id="howToPlay">
+    <h2>How to play</h2>
+    <P> The game is Rock Paper Scissors. The rules are simple: <br />
+      Rock crushes Scissors. <br />
+      Scissors cuts Paper. <br />
+      Paper covers Rock. <br />
+      And if both players choose the same object, it's a tie.</P>
+      <button onclick="closeDialog()" type="button">close</button>
+  </dialog>
+  <div class="results">
+    <div id="choices">
+      <div id="playerDiv"></div>
+      <div id="computerDiv"></div>
     </div>
     <div id="answer"></div>
-    <div class="buttons-container">
-      <div>
-        <button class="btn" id="rock"></button>
-      </div>
-      <div>
-        <button class="btn" id="paper"></button>
-      </div>
-      <div>
-        <button class="btn" id="scissors"></button>
-      </div>
+  </div>
+  <div class="buttons-container">
+    <div>
+      <button class="btn" id="rock">rock</button>
     </div>
-    <div><button class="btn" id="reload">Reload The Game</button></div>
-  </body>
+    <div>
+      <button class="btn" id="paper">paper</button>
+    </div>
+    <div>
+      <button class="btn" id="scissors">scissors</button>
+    </div>
+  </div>
+  <div><button class="btn" id="reload">Reload The Game</button></div>
+
+</body>
+
 </html>
