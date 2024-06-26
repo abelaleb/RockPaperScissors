@@ -2,12 +2,12 @@ const resultDiv = document.getElementById("answer");
 const playerDiv = document.getElementById("playerDiv");
 const computerDiv = document.getElementById("computerDiv");
 const dialog = document.getElementById("howToPlay");
-function showDialog(){
-  dialog.showModal()
-}
-function closeDialog(){
-  dialog.close()
-}
+const wrapper = document.querySelector(".wrapper");
+
+const showLoginDialog = (show) => show ? dialog.showModal() : dialog.close();
+
+dialog.addEventListener("click", (e)=>!wrapper.contains(e.target) && dialog.close());
+
 let playerChoice, computerChoice;
 
 let getComputerChoice = function () {
@@ -20,8 +20,8 @@ let playerPoints = 0,
   computerPoints = 0;
 let result;
 let results = [];
-let playerEmojis = ["player"];
-let computerEmojis = ["computer"];
+let playerEmojis = [];
+let computerEmojis = [];
 
 function playRound(playerChoice) {
   let computerChoice = getComputerChoice();
@@ -87,8 +87,8 @@ function declareCurrentHand() {
   let playerImage = getImage(playerEmojis[playerEmojis.length - 1]);
   let computerImage = getImage(computerEmojis[computerEmojis.length - 1]);
 
-  playerDiv.innerHTML = `Player: <img src="${playerImage}" alt="${playerEmojis[playerEmojis.length - 1]}" width="100" >`;
-  computerDiv.innerHTML = `Computer: <img src="${computerImage}" alt="${computerEmojis[computerEmojis.length - 1]}" width="100" >`;
+  playerDiv.innerHTML = ` <img src="${playerImage}" alt="${playerEmojis[playerEmojis.length - 1]}" width="50%" >`;
+  computerDiv.innerHTML = ` <img src="${computerImage}" alt="${computerEmojis[computerEmojis.length - 1]}" width="50%" >`;
 }
 
 function getImage(choice) {

@@ -13,36 +13,44 @@
   <div class="title">
     <h1>RockPaperScissors</h1>
   </div>
-  <button onclick="showDialog()" type="button">How To play Instructions</button>
-  
-  <dialog id="howToPlay">
-    <h2>How to play</h2>
-    <P> The game is Rock Paper Scissors. The rules are simple: <br />
-      Rock crushes Scissors. <br />
-      Scissors cuts Paper. <br />
-      Paper covers Rock. <br />
-      And if both players choose the same object, it's a tie.</P>
-      <button onclick="closeDialog()" type="button">close</button>
-  </dialog>
-  <div class="results">
-    <div id="choices">
-      <div id="playerDiv"></div>
-      <div id="computerDiv"></div>
+  <div id="mainLayout">
+    <div class="topMainLayout"><button onclick="showLoginDialog(true)" type="button">How To play?</button>
+      <dialog id="howToPlay">
+        <div class="wrapper">
+          <h2>How to play</h2>
+          <p>The game is Rock Paper Scissors, with straightforward rules: <br />
+            Rock beats Scissors. <br />
+            Scissors beat Paper. <br />
+            Paper beats Rock. <br />
+            If both players pick the same object, it's a draw.
+          </p>
+          <div id="closeButton"><button onclick="showLoginDialog(false)" type="button">close</button>
+          </div>
+        </div>
+
+      </dialog>
     </div>
-    <div id="answer"></div>
+    <div class="results">
+      <div id="choices">
+        <div id="playerDiv"></div>
+        <div id="computerDiv"></div>
+      </div>
+      <div id="answer"></div>
+    </div>
   </div>
+
   <div class="buttons-container">
     <div>
-      <button class="btn" id="rock">rock</button>
+      <button class="btn" id="rock">Rock</button>
     </div>
     <div>
-      <button class="btn" id="paper">paper</button>
+      <button class="btn" id="paper">Paper</button>
     </div>
     <div>
-      <button class="btn" id="scissors">scissors</button>
+      <button class="btn" id="scissors">Scissors</button>
     </div>
   </div>
-  <div><button class="btn" id="reload">Reload The Game</button></div>
+  <div><button class="btn" id="reload">Reload</button></div>
 
 </body>
 
