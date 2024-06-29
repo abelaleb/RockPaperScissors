@@ -116,16 +116,30 @@ function declareWinner() {
     button3.setAttribute("disabled", "");
   }
 }
-
-const body = document.querySelector("body");
+function resetGame(){
+  results = [];
+  playerEmojis = [];
+  computerEmojis = [];
+  playerPoints = 0;
+  computerPoints = 0;
+  resultDiv.innerHTML = "";
+  playerDiv.innerHTML = "";
+  computerDiv.innerHTML = "";
+  button1.removeAttribute("disabled"); // Enable buttons again
+  button2.removeAttribute("disabled");
+  button3.removeAttribute("disabled");
+}
+const container = document.getElementById("container");
 const button1 = document.getElementById("rock");
+button1.textContent = "Rock";
 button1.addEventListener("click", () => playRound("rock"));
 const button2 = document.getElementById("paper");
+button2.textContent = "Paper";
 button2.addEventListener("click", () => playRound("paper"));
 const button3 = document.getElementById("scissors");
+button3.textContent = "Scissors";
 button3.addEventListener("click", () => playRound("scissors"));
-const reloadButton = document.getElementById("reload");
-reloadButton.addEventListener("click", function () {
-  window.location.reload();
-});
-body.append(button1, button2, button3, reloadButton);
+const resetButton = document.getElementById("reload");
+resetButton.textContent = "Reset Game";
+resetButton.addEventListener("click", resetGame);
+container.append(button1, button2, button3, resetButton);

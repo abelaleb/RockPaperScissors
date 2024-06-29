@@ -10,48 +10,55 @@
 </head>
 
 <body>
-  <div class="title">
-    <h1>RockPaperScissors</h1>
-  </div>
-  <div id="mainLayout">
-    <div class="topMainLayout"><button onclick="showLoginDialog(true)" type="button">How To play?</button>
-      <dialog id="howToPlay">
-        <div class="wrapper">
-          <h2>How to play</h2>
-          <p>The game is Rock Paper Scissors, with straightforward rules: <br />
-            Rock beats Scissors. <br />
-            Scissors beat Paper. <br />
-            Paper beats Rock. <br />
-            If both players pick the same object, it's a draw.
-          </p>
-          <div id="closeButton"><button onclick="showLoginDialog(false)" type="button">close</button>
+  <div id="container">
+    <div class="title">
+      <h1>RockPaperScissors</h1>
+    </div>
+    <div id="mainLayout">
+      <div class="topMainLayout"><button onclick="showLoginDialog(true)" type="button">How To play?</button>
+        <dialog id="howToPlay">
+          <div class="wrapper">
+            <h2>How to play</h2>
+            <p>The game is Rock Paper Scissors, with straightforward rules: <br />
+              Rock beats Scissors. <br />
+              Scissors beat Paper. <br />
+              Paper beats Rock. <br />
+              If both players pick the same object, it's a draw.
+            </p>
+            <div id="closeButton"><button onclick="showLoginDialog(false)" type="button">close</button>
+            </div>
+          </div>
+
+        </dialog>
+      </div>
+      <div class="results">
+        <div id="choices">
+          <div>
+            <p>Player</p>
+            <div id="playerDiv"></div>
+          </div>
+          <div>
+            <p>Computer</p>
+            <div id="computerDiv"></div>
           </div>
         </div>
-
-      </dialog>
-    </div>
-    <div class="results">
-      <div id="choices">
-        <div id="playerDiv"></div>
-        <div id="computerDiv"></div>
+        <div id="answer"></div>
       </div>
-      <div id="answer"></div>
     </div>
+    <div class="buttons-container">
+      <div>
+        <button class="btn" id="rock"></button>
+      </div>
+      <div>
+        <button class="btn" id="paper"></button>
+      </div>
+      <div>
+        <button class="btn" id="scissors"></button>
+      </div>
+    </div>
+    <div><button class="btn" id="reload"></button></div>
   </div>
-
-  <div class="buttons-container">
-    <div>
-      <button class="btn" id="rock">Rock</button>
-    </div>
-    <div>
-      <button class="btn" id="paper">Paper</button>
-    </div>
-    <div>
-      <button class="btn" id="scissors">Scissors</button>
-    </div>
-  </div>
-  <div><button class="btn" id="reload">Reload</button></div>
-
+  <footer>webpage by Abel A.</footer>
 </body>
 
 </html>

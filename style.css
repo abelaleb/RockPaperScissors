@@ -62,6 +62,12 @@ body {
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  p{
+    padding: .2rem;
+    margin: 0rem 1rem ;
+    color: var(--clr-brown);
+    font-size: var(--fs-500);
+  }
   #choices {
     display: flex;
     border: 3px solid var(--clr-brown);
@@ -70,15 +76,16 @@ body {
     background-color: rgba(0, 0, 0, 0.1);
     width:  3
     0vw;
-    margin: 1rem;
+    margin: .5rem;
     min-height: 3rem;
     #playerDiv,
     #computerDiv {
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100px;
-      padding: .2rem;
+      min-height: 15vh;
+      min-width: 5vw;
+      padding: 1rem;
     }
   }
   #answer {
@@ -91,8 +98,10 @@ body {
     color: var(--clr-brown);
     min-height: 100px;
     width: 40vw;
+    height: 40vh;
     margin: 0 2rem;
     padding: 1rem;
+    overflow: auto;
   }}
 }
 dialog {
@@ -107,7 +116,7 @@ dialog {
   }
 }
 dialog::backdrop {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(41, 41, 9, 0.4);
 }
 .btn {
   background-color: var(--clr-light-yellow);
